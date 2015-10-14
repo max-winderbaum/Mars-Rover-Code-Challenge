@@ -1,0 +1,25 @@
+{
+  "name": "mars",
+  "version": "1.0.0",
+  "description": "A Mars Rover coding exercise",
+  "main": "app/index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/jasmine-node app --autotest",
+    "start": "node app/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/max-winderbaum/marsRover.git"
+  },
+  "author": "Max Winderbaum",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/max-winderbaum/marsRover/issues"
+  },
+  "homepage": "https://github.com/max-winderbaum/marsRover#readme",
+  "devDependencies": {
+    "jasmine-node": "^1.14.5",
+    "node": "0.0.0",
+    "q": "^1.4.1"
+  }
+}
