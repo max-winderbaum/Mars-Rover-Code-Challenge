@@ -5,7 +5,7 @@ Node.js is the only global dependency for this project. Please install node > 12
     npm install
     npm start --loglevel silent
 ### Testing
-Spec files are located alongside the modules they're testing, and follow the naming convention *_spec.js.
+Jasmine specs are located alongside the modules they're testing, and follow the naming convention *_spec.js.
 To run tests and rerun when files change:
 
     npm test
