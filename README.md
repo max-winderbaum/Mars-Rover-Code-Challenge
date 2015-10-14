@@ -1,5 +1,14 @@
 # Mars Rover Code Challenge
+### Quickstart
+Node.js is the only global dependency for this project. Please install node > 12 with npm.
 
+    npm install
+    npm start --loglevel silent
+### Testing
+Spec files are located alongside the modules they're testing, and follow the naming convention *_spec.js.
+To run tests and rerun when files change:
+
+    npm test
 ### The Problem
 A squad of robotic rovers are to be landed by NASA on a plateau on Mars.
 This plateau, which is curiously rectangular, must be navigated by the rovers
@@ -41,4 +50,20 @@ MMRMMRMRRM
 
 **Output:**  
 1 3 N  
-5 1 E  
+5 1 E
+
+### The Solution
+
+I created several objects and interfaces for this solution.
+
+##### Interfaces
+
+I created modular interfaces for the problem's input, output, move types and directions. This way, if the input or output ever needs to change, we can just change the interfaces instead of picking through the code for magic strings.
+
+##### Objects
+
+I used a Map object that kept track of its own borders as well as all the rovers that were currently present. The Map object can issue commands to rovers and detect collisions or out-of-bounds errors.
+
+Rover objects know about their own current direction and coordinates. They update their properties based on moves passed down from the Map, and can project the coordinates of a potential move without actually making that move. The Map uses this projection capability to detect possible collisions and throw errors if necessary.
+
+Right now, if the provided rover plan results in a collision or out-of-bounds error the program simply omits that rover from the results (assuming it crashed or fell off a cliff). If the given input is invalid, the program simply throws an error.

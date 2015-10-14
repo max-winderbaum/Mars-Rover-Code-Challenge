@@ -5,8 +5,8 @@ var Q = require('q');
 
 var Map = require('./map');
 var Rover = require('./rover');
-var DIRECTIONS = require('./constants/directions');
-var MOVES = require('./constants/moves');
+var DIRECTIONS = require('./constants/directions').in;
+var MOVES = require('./constants/moves').in;
 
 /**
  * Process the input text file and reject on error
@@ -68,7 +68,7 @@ function setupRover(initialPosition) {
 
 	var x = parseInt(position[0], 10);
 	var y = parseInt(position[1], 10);
-	var direction = DIRECTIONS.in[position[2]];
+	var direction = DIRECTIONS[position[2]];
 
 	if (isNaN(x) || isNaN(y) || typeof direction === 'undefined') {
 		throw new Error('invalid rover');
@@ -78,8 +78,8 @@ function setupRover(initialPosition) {
 
 function setupMoves(moves) {
 	return moves.split('').map(function(move) {
-		if (MOVES.in[move]) {
-			return MOVES.in[move];
+		if (MOVES[move]) {
+			return MOVES[move];
 		} else {
 			throw new Error('invalid move');
 		}
